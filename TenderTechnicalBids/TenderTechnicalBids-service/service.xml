@@ -1,0 +1,468 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_2_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.gdf.technical.bids">
+	<author>KS61374</author>
+	<namespace>PRT</namespace>
+	
+	<!-- GDF Tender Details - Tender details creation module -->
+	<entity local-service="true" name="GDFTenderDetails"
+		remote-service="false" table="PRT_GDF_Tender_Details">
+
+		<!-- PK fields -->
+
+		<column name="tenderRefID" primary="true" type="long"
+			db-name="GDF_Tender_Ref_Id" id-type="identity" />
+
+		<!-- Other fields -->
+		<column name="productCategory" type="String"
+			db-name="Product_Category" />
+
+		<column name="tenderReferenceNumber" type="String"
+			db-name="GDF_Tender_Reference_Number" />
+
+		<column name="title" type="String" db-name="title" />
+
+		<column name="publicationDate" type="Date"
+			db-name="Date_Of_Publication" />
+
+		<column name="deadlineForTechBidsSub" type="Date"
+			db-name="Deadline_For_Tech_Bids_Sub" />
+
+		<column name="method" type="String" db-name="Method" />
+
+		<column name="tenderStatus" type="String" db-name="Status" />
+
+		<column name="deadlineTimeForTechBidsSub" type="Date"></column>
+
+
+		<!-- Audit fields -->
+
+
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+
+		<!-- Order -->
+
+		<order by="desc">
+			<order-column name="modifiedDate" order-by="desc" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="GDF_Tender_Reference_Number"
+			return-type="GDFTenderDetails" unique="true">
+			<finder-column name="tenderReferenceNumber" />
+		</finder>
+		
+		<finder name="GDFTenderRefeNoByUserId"
+			return-type="GDFTenderDetails">
+			<finder-column name="tenderReferenceNumber" />
+			<finder-column name="userId" />
+		</finder>
+		
+		<finder name="GDFTendersByUserId"
+			return-type="Collection">
+		
+			<finder-column name="userId" />
+		</finder>
+		
+	</entity>
+	
+	<entity name="GDFTenderScheduleItem" local-service="true"
+		table="PRT_GDF_Tender_Item_Details" remote-service="false">
+
+		<column name="tenderItemRefID" type="long" primary="true"
+			id-type="identity" db-name="GDF_Tender_Item_Ref_Id"></column>
+
+		<column name="tenderItemNumber" type="long" primary="false"
+			db-name="GDF_Tender_Item_Num"></column>
+		<column name="scheduleNumber" type="long"
+			db-name="GDF_Tender_Schedule_Number"></column>
+		<column name="generalDescription" type="String"
+			db-name="GDF_Generic_Desc"></column>
+		<column name="primaryPackaging" type="String"
+			db-name="Prim_Packaging"></column>
+		<column name="secondaryPackaging" type="String"
+			db-name="Sec_Packaging"></column>
+
+		<column name="gdfGenericCode" type="String"
+			db-name="GDF_Generic_Code"></column>
+
+		<column name="tenderReferenceNumber" type="String"
+			db-name="GDF_Tender_Reference_Number" />
+		<column type="String" db-name="GDF_Tender_Schedule_Name"
+			name="scheduleName"></column>
+		<column type="String" db-name="GDF_PatientTarget"
+			name="patientTarget"></column>
+
+		<!-- <column name="tenderRefID" type="long" db-name="GDF_Tender_Reference_Number" 
+			mapping-table="PRT_GDF_Tender_Details" entity="GDFTenderDetails" /> -->
+
+		<!-- Audit fields -->
+
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<finder name="GDF_Tender_Reference_Number"
+			return-type="Collection">
+			<finder-column name="tenderReferenceNumber" />
+		</finder>
+
+		<finder name="GDF_Tender_Schedule_Number"
+			return-type="Collection">
+			<finder-column name="scheduleNumber" />
+		</finder>
+		
+		<finder name="GDFTenderScheduleItemByUserId"
+			return-type="Collection">
+			<finder-column name="tenderItemNumber" />
+			<finder-column name="userId" />
+		</finder>
+		<finder name="GDFTenderTendRefNoByUserId"
+			return-type="Collection">
+			<finder-column name="tenderReferenceNumber" />
+			<finder-column name="userId" />
+		</finder>
+		<!-- Newly added below two methods  -->
+		<finder name="TenderItemByScheduleIdGenCode"
+			return-type="GDFTenderScheduleItem" unique="true">
+			<finder-column name="tenderReferenceNumber" />
+			<finder-column name="tenderItemNumber" />
+			<finder-column name="scheduleNumber" />
+			<finder-column name="gdfGenericCode" />
+		</finder>
+		
+		<finder name="TenderItemByGenCodeAndSchedNo"
+			return-type="Collection">
+			<finder-column name="tenderReferenceNumber" />
+			<finder-column name="tenderItemNumber" />
+			<finder-column name="scheduleNumber" />
+			<finder-column name="gdfGenericCode" />
+		</finder>
+
+	</entity>
+	
+	<entity local-service="true" name="GDFTenderSubmissionDetails"
+		remote-service="false" table="PRT_GDFTender_Subm_Details">
+
+		<!-- PK fields -->
+
+		<column name="tenderSubRefID" primary="true" type="long"
+			db-name="GDF_Tender_Sub_Ref_Id" id-type="identity" />
+
+		<!-- Other fields -->
+
+		<column name="tenderReferenceNumber" type="String"
+			db-name="GDF_Tender_Reference_Number" />
+		<column type="String" name="copyOfRegCert"
+			db-name="Copy_Of_Reg_Cert"></column>
+
+		<column type="String" name="supplierName"
+			db-name="Supplier_Name"></column>
+
+		<column type="String" name="nameOfAuthRepr"
+			db-name="Name_Of_Auth_Repr"></column>
+
+		<column type="String" name="supplierTitle"
+			db-name="Supplier_Title"></column>
+
+		<column type="String" name="supplierEmailAddress"
+			db-name="Supplier_Email_Address"></column>
+
+		<column type="String" name="supplierTelephoneNumber"
+			db-name="Supplier_Telephone_Number"></column>
+
+		<column name="tenderSubmissionStatus" type="String"
+			db-name="Submission_Status" />
+
+
+		<!-- Audit fields -->
+
+
+		<column name="supplierId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<column name="submittedDate" type="Date"></column>
+
+		<!-- Order -->
+
+		<order by="desc">
+			<order-column name="modifiedDate" order-by="desc" />
+			<order-column name="createDate" order-by="desc" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="GDF_Tender_Reference_Number"
+			return-type="GDFTenderSubmissionDetails">
+			<finder-column name="tenderReferenceNumber" />
+		</finder>
+		
+		<finder name="GDFTenderRefeNoByUserId"
+			return-type="GDFTenderSubmissionDetails" unique="true">
+			<finder-column name="tenderReferenceNumber" />
+			<finder-column name="supplierId" />
+		</finder>
+		
+		<finder name="GDFTendersByUserId"
+			return-type="Collection" >
+		
+			<finder-column name="supplierId" />
+		</finder>
+	</entity>
+
+	<entity name="GDFTenderSubSchedDetails" local-service="true"
+		table="PRT_GDFTender_SubSched_Det" remote-service="false">
+
+		<column name="tenderSubSchedRefID" type="long" primary="true"
+			id-type="identity" db-name="GDF_Tender_Sub_Sched_Ref_Id"></column>
+
+		<column name="tenderItemNumber" type="long" primary="false"
+			db-name="GDF_Tender_Item_Num"></column>
+
+		<column name="scheduleNumber" type="long"
+			db-name="GDF_Tender_Schedule_Number"></column>
+
+		<column name="gdfGenericCode" type="String"
+			db-name="GDF_Generic_Code"></column>
+
+		<column name="tenderReferenceNumber" type="String"
+			db-name="GDF_Tender_Reference_Number" />
+
+		<column type="String" db-name="GDF_Tender_Schedule_Name"
+			name="scheduleName"></column>
+
+		<column type="String" db-name="GDF_PatientTarget"
+			name="patientTarget"></column>
+
+		<column name="tenderItemRefID" type="long"
+			db-name="GDF_Tender_Item_Ref_Id"></column>
+
+
+		<!-- Audit fields -->
+
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+
+		<finder name="GDF_Tender_Reference_Number"
+			return-type="Collection">
+			<finder-column name="tenderReferenceNumber" />
+		</finder>
+		<finder name="GDF_Tender_Sub_Sched_Ref_Id"
+			return-type="Collection">
+			<finder-column name="tenderSubSchedRefID" />
+		</finder>
+
+		<finder name="GDF_Tender_Schedule_Number"
+			return-type="Collection">
+			<finder-column name="scheduleNumber" />
+		</finder>
+
+		<finder name="GDF_Generic_Code" return-type="Collection">
+			<finder-column name="gdfGenericCode" />
+		</finder>
+
+		<finder name="GDF_Tender_Item_Ref_Id" return-type="Collection">
+			<finder-column name="tenderItemRefID" />
+		</finder>
+		<finder name="GDFTenderSubBySNUAndTRNUAndTINU"
+			return-type="Collection">
+			<finder-column name="scheduleNumber"></finder-column>
+			<finder-column name="tenderReferenceNumber"></finder-column>
+			<finder-column name="tenderItemNumber"></finder-column>
+		</finder>
+
+	</entity>
+
+
+	<entity name="GDFTenderSubFPPMatDetails" local-service="true"
+		table="PRT_GDFTender_SubFPPMat_Det" remote-service="false">
+
+		<column name="tenderItemMatRefID" type="long" primary="true"
+			id-type="identity" db-name="GDF_Tender_Item_Mat_Ref_Id"></column>
+
+		<column name="scheduleNumber" type="long"
+			db-name="GDF_Tender_Schedule_Number"></column>
+
+		<column name="gdfGenericCode" type="String"
+			db-name="GDF_Generic_Code"></column>
+
+		<column name="tenderReferenceNumber" type="String"
+			db-name="GDF_Tender_Reference_Number" />
+
+		<column name="dosageForm" type="String" db-name="Dosage_Form" />
+
+		<column type="long" db-name="No_Prim_Package_Units"
+			name="noPrimPackageUnits"></column>
+
+		<column type="long" db-name="No_Sec_Package_Units"
+			name="noSecPackageUnits"></column>
+
+		<column type="String" name="gdfFppMartApprStatus"
+			db-name="Gdf_Fpp_Mart_Appr_Status"></column>
+
+		<column type="boolean" name="fppSelectedStatus"
+			db-name="FPP_Selected_Status"></column>
+
+		<column type="long" name="fppMarketID" db-name="FPP_Market_Id"></column>
+
+		<column name="tenderItemRefID" type="long"
+			db-name="GDF_Tender_Item_Ref_Id"></column>
+
+		<!-- Audit fields -->
+
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+
+		<finder name="GDFTendRefSubFPPMatByUserId"
+			return-type="Collection">
+			<finder-column name="tenderReferenceNumber" />
+			<finder-column name="userId" />
+		</finder>
+
+		<finder name="GDF_Tender_Item_Mat_Ref_Id"
+			return-type="Collection">
+			<finder-column name="tenderItemMatRefID" />
+		</finder>
+
+		<finder name="GDF_Tender_fppMarketID" return-type="Collection">
+			<finder-column name="fppMarketID" />
+		</finder>
+
+		<finder name="GDFTenderByTIMRIDAndFMID"
+			return-type="Collection">
+			<finder-column name="tenderItemMatRefID" />
+			<finder-column name="fppMarketID"></finder-column>
+		</finder>
+
+		<finder name="GDFTenderMatUserGenCodeSNU"
+			return-type="Collection">
+			<finder-column name="fppMarketID" />
+			<finder-column name="userId" />
+			<finder-column name="gdfGenericCode" />
+			<finder-column name="scheduleNumber"></finder-column>
+		</finder>
+
+		<finder name="GDFTenderBySNUAndAndGenCode"
+			return-type="Collection">
+			<finder-column name="scheduleNumber" />
+			<finder-column name="gdfGenericCode"></finder-column>
+		</finder>
+
+		<finder name="GDF_Generic_Code" return-type="Collection">
+			<finder-column name="gdfGenericCode" />
+		</finder>
+
+		<finder name="FPP_Selected_Status" return-type="Collection">
+			<finder-column name="fppSelectedStatus" />
+		</finder>
+
+		<finder name="GDFTenderByFIDUIDGenCodeSNUTRN"
+			return-type="Collection">
+			<finder-column name="fppMarketID"></finder-column>
+			<finder-column name="userId"></finder-column>
+			<finder-column name="gdfGenericCode"></finder-column>
+			<finder-column name="scheduleNumber"></finder-column>
+			<finder-column name="tenderReferenceNumber"></finder-column>
+		</finder>
+
+	</entity>
+
+
+	<entity name="GDFTenderSubFPPRegDetails" local-service="true"
+		table="PRT_GDFTender_SubFppReg_Det" remote-service="false">
+
+		<column name="tenderRegRefID" type="long" primary="true"
+			id-type="identity" db-name="GDF_Tender_Reg_Ref_Id"></column>
+
+		<column name="scheduleNumber" type="long"
+			db-name="GDF_Tender_Schedule_Number"></column>
+
+		<column name="gdfGenericCode" type="String"
+			db-name="GDF_Generic_Code"></column>
+
+		<column name="tenderReferenceNumber" type="String"
+			db-name="GDF_Tender_Reference_Number" />
+
+		<column db-name="listOf_Registration_Countries"
+			name="listOfRegCountries" type="String"></column>
+
+		<column type="String" name="fppRegApprStatus"
+			db-name="FPP_Reg_Appr_Status"></column>
+
+		<column type="boolean" name="fppRegAccepted"
+			db-name="FPP_Reg_Accepted"></column>
+
+		<column name="fppRegistrationId" type="long"
+			db-name="FPP_Registration_ID"></column>
+
+		<column name="tenderItemMatRefID" type="long"
+			db-name="GDF_Tender_Item_Mat_Ref_Id"></column>
+
+		<column name="tenderItemRefID" type="long"
+			db-name="GDF_Tender_Item_Ref_Id"></column>
+
+		<!-- Audit fields -->
+
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+
+		<finder name="GDFTendRefSubFPPRegByUserId"
+			return-type="Collection">
+			<finder-column name="tenderReferenceNumber" />
+			<finder-column name="userId" />
+		</finder>
+
+		<finder name="GDF_Tender_Schedule_Number"
+			return-type="Collection">
+			<finder-column name="scheduleNumber" />
+		</finder>
+
+		<finder name="FPP_Registration_ID" return-type="Collection">
+			<finder-column name="fppRegistrationId" />
+
+		</finder>
+		<finder name="GDF_Tender_Reg_Ref_Id" return-type="Collection">
+			<finder-column name="tenderRegRefID" />
+		</finder>
+
+		<finder name="GDF_Generic_Code" return-type="Collection">
+			<finder-column name="gdfGenericCode" />
+		</finder>
+
+
+		<finder name="GDFTenderByTRIDAndFRID" return-type="Collection">
+			<finder-column name="tenderRegRefID"></finder-column>
+			<finder-column name="fppRegistrationId"></finder-column>
+		</finder>
+
+		<finder name="GDFTenderBySNUTRNUAndGenCode"
+			return-type="Collection">
+			<finder-column name="scheduleNumber"></finder-column>
+			<finder-column name="tenderReferenceNumber"></finder-column>
+			<finder-column name="gdfGenericCode"></finder-column>
+		</finder>
+
+		<finder name="GDFTenderBySNUAndTRNUGenCodeFID"
+			return-type="Collection">
+			<finder-column name="scheduleNumber"></finder-column>
+			<finder-column name="userId"></finder-column>
+			<finder-column name="tenderReferenceNumber"></finder-column>
+			<finder-column name="gdfGenericCode"></finder-column>
+			<finder-column name="fppRegistrationId"></finder-column>
+		</finder>
+
+	</entity>
+
+</service-builder>

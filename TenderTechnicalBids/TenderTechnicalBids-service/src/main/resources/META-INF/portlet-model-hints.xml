@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.gdf.technical.bids.model.GDFTenderDetails">
+		<field name="tenderRefID" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="productCategory" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="tenderReferenceNumber" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="title" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="publicationDate" type="Date">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="deadlineForTechBidsSub" type="Date">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="method" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="tenderStatus" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="deadlineTimeForTechBidsSub" type="Date">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="userId" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="userName" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="createDate" type="Date">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="modifiedDate" type="Date">
+			<hint name="max-length">100</hint>
+		</field>
+	</model>
+	<model name="com.gdf.technical.bids.model.GDFTenderScheduleItem">
+		<field name="tenderItemRefID" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="tenderItemNumber" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="scheduleNumber" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="generalDescription" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="primaryPackaging" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="secondaryPackaging" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="gdfGenericCode" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="tenderReferenceNumber" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="scheduleName" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="patientTarget" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="userId" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="userName" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="createDate" type="Date">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="modifiedDate" type="Date">
+			<hint name="max-length">100</hint>
+		</field>
+	</model>
+	<model name="com.gdf.technical.bids.model.GDFTenderSubFPPMatDetails">
+		<field name="tenderItemMatRefID" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="scheduleNumber" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="gdfGenericCode" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="tenderReferenceNumber" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="dosageForm" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="noPrimPackageUnits" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="noSecPackageUnits" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="gdfFppMartApprStatus" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="fppSelectedStatus" type="boolean">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="fppMarketID" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="tenderItemRefID" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="userId" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="userName" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="createDate" type="Date">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="modifiedDate" type="Date">
+			<hint name="max-length">100</hint>
+		</field>
+	</model>
+	<model name="com.gdf.technical.bids.model.GDFTenderSubFPPRegDetails">
+		<field name="tenderRegRefID" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="scheduleNumber" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="gdfGenericCode" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="tenderReferenceNumber" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="listOfRegCountries" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="fppRegApprStatus" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="fppRegAccepted" type="boolean">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="fppRegistrationId" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="tenderItemMatRefID" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="tenderItemRefID" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="userId" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="userName" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="createDate" type="Date">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="modifiedDate" type="Date">
+			<hint name="max-length">100</hint>
+		</field>
+	</model>
+	<model name="com.gdf.technical.bids.model.GDFTenderSubmissionDetails">
+		<field name="tenderSubRefID" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="tenderReferenceNumber" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="copyOfRegCert" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="supplierName" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="nameOfAuthRepr" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="supplierTitle" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="supplierEmailAddress" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="supplierTelephoneNumber" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="tenderSubmissionStatus" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="supplierId" type="long">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="userName" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="createDate" type="Date">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="modifiedDate" type="Date">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="submittedDate" type="Date">
+			<hint name="max-length">100</hint>
+		</field>
+	</model>
+	<model name="com.gdf.technical.bids.model.GDFTenderSubSchedDetails">
+		<field name="tenderSubSchedRefID" type="long" />
+		<field name="tenderItemNumber" type="long" />
+		<field name="scheduleNumber" type="long" />
+		<field name="gdfGenericCode" type="String" />
+		<field name="tenderReferenceNumber" type="String" />
+		<field name="scheduleName" type="String" />
+		<field name="patientTarget" type="String" />
+		<field name="tenderItemRefID" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+</model-hints>

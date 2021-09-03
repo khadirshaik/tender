@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE routes PUBLIC "-//Liferay//DTD Friendly URL Routes 7.2.0//EN" "http://www.liferay.com/dtd/liferay-friendly-url-routes_7_2_0.dtd">
+<routes>
+	<route>
+		<pattern>/{instanceId}/createTender</pattern>
+		<generated-parameter name="_jspPath">/jsp/createTenderDetails.jsp</generated-parameter>
+		<generated-parameter name="cmd">render_createTenderDetails</generated-parameter>
+		<implicit-parameter name="mvcRenderCommandName">renderTenderDetails_Info</implicit-parameter>
+		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+		<implicit-parameter name="p_p_mode">view</implicit-parameter>
+	</route>
+
+	<!-- <route> <pattern>/editTender/{tenderReferenceNumber}</pattern> <generated-parameter 
+		name="tenderReferenceNumber">{tenderReferenceNumber}</generated-parameter> 
+		<implicit-parameter name="mvcRenderCommandName">editTenderDetails_Info</implicit-parameter> 
+		<implicit-parameter name="p_p_id">GdfTenderDetails_Web_GdfTenderDetailsWebPortlet_INSTANCE_etVNdpwTt1tL</implicit-parameter> 
+		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter> <implicit-parameter 
+		name="p_p_state">normal</implicit-parameter> <implicit-parameter name="p_p_mode">view</implicit-parameter> 
+		</route> -->
+
+	<route>
+		<pattern>/{instanceId}/editTender/{tenderReferenceNumber}</pattern>
+		<generated-parameter name="tenderReferenceNumber">{tenderReferenceNumber}</generated-parameter>
+		<generated-parameter name="_jspPath">/jsp/editTenderDetails.jsp</generated-parameter>
+		<generated-parameter name="cmd">render_editTenderDetails</generated-parameter>
+		<implicit-parameter name="mvcRenderCommandName">renderTenderDetails_Info</implicit-parameter>
+		<!-- <implicit-parameter name="p_p_id">GdfTenderDetails_Web_GdfTenderDetailsWebPortlet_INSTANCE_etVNdpwTt1tL</implicit-parameter> -->
+		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+		<implicit-parameter name="p_p_mode">view</implicit-parameter>
+	</route>
+
+	<route>
+		<pattern>/{instanceId}/updateTender</pattern>
+		<generated-parameter name="cmd">action_updateTenderDetails</generated-parameter>
+		<ignored-parameter name="p_auth" />
+		<implicit-parameter name="javax.portlet.action">actionTenderDetails_Info</implicit-parameter>
+		<implicit-parameter name="mvcActionCommand">actionTenderDetails_Info</implicit-parameter>
+		<implicit-parameter name="p_p_lifecycle">1</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+		<implicit-parameter name="p_p_mode">view</implicit-parameter>
+		
+	</route>
+
+
+<route>
+		<pattern>/{instanceId}/addTender</pattern>
+		<generated-parameter name="cmd">action_createTenderDetails</generated-parameter>
+		<implicit-parameter name="javax.portlet.action">actionTenderDetails_Info</implicit-parameter>
+		<implicit-parameter name="mvcActionCommand">actionTenderDetails_Info</implicit-parameter>
+		<implicit-parameter name="p_p_lifecycle">1</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+		<implicit-parameter name="p_p_mode">view</implicit-parameter>
+	</route>
+
+
+	<!-- <route> <pattern>/edit/{mvcRenderCommandName}/tenderReferenceNumber/{tenderReferenceNumber:\d+}</pattern> 
+		<generated-parameter name="mvcRenderCommandName">{editTenderDetails_Info}</generated-parameter> 
+		<generated-parameter name="tenderReferenceNumber">{tenderReferenceNumber}</generated-parameter> 
+		<ignored-parameter name="p_p_id" /> <ignored-parameter name="p_p_lifecycle" 
+		/> <ignored-parameter name="p_p_state" /> <ignored-parameter name="p_p_mode" 
+		/> </route> <route> <pattern>/save/{createTender}</pattern> <generated-parameter 
+		name="javax.portlet.action">{createTender}</generated-parameter> <ignored-parameter 
+		name="p_auth" /> <ignored-parameter name="p_p_id" /> <ignored-parameter name="p_p_lifecycle" 
+		/> <ignored-parameter name="p_p_state" /> <ignored-parameter name="p_p_mode" 
+		/> </route> <route> <pattern>/update/{updateTenderDetails}</pattern> <generated-parameter 
+		name="javax.portlet.action">{updateTenderDetails}</generated-parameter> <ignored-parameter 
+		name="p_auth" /> <ignored-parameter name="p_p_id" /> <ignored-parameter name="p_p_lifecycle" 
+		/> <ignored-parameter name="p_p_state" /> <ignored-parameter name="p_p_mode" 
+		/> </route> -->
+
+	<!-- <route> <pattern>/update/{updateTenderDetails}</pattern> <generated-parameter 
+		name="javax.portlet.action">{updateTenderDetails}</generated-parameter> <ignored-parameter 
+		name="p_auth" /> <ignored-parameter name="p_p_id" /> <implicit-parameter 
+		name="p_p_lifecycle">1</implicit-parameter> <implicit-parameter name="p_p_state">normal</implicit-parameter> 
+		<implicit-parameter name="p_p_mode">view</implicit-parameter> </route> -->
+</routes>

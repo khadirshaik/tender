@@ -1,0 +1,10 @@
+Bundle-Name: TenderTechnicalBids-api
+Bundle-SymbolicName: com.gdf.technical.bids.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.gdf.technical.bids.exception,\
+	com.gdf.technical.bids.model,\
+	com.gdf.technical.bids.service,\
+	com.gdf.technical.bids.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../TenderTechnicalBids-service/service.xml
